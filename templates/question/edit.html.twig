@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Quiz{% endblock %}
+
+{% block body %}
+    	<div class="card d-block m-auto bg-dark text-light" style="width: 25rem;">
+		<h5 class="card-header">Modifier la question</h5>
+		<div class="card-body">
+			<a>{{ include('question/_form.html.twig', {'button_label': 'Update'}) }}</a>
+            <a class="btn btn-primary" href="{{ path('app_home') }}">Accueil</a>
+            <a>{{ include('question/_delete_form.html.twig') }}</a>
+		</div>
+	</div>
+
+
+    
+{% endblock %}

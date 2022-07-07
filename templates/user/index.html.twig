@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index
+{% endblock %}
+
+{% block body %}
+
+	{% if is_granted('ROLE_ADMIN') %}
+		<table class="tableIndex table table-hover table-dark" style="width: 80%;">
+			<thead>
+				<tr>
+					<button class="btn btn-primary" id="addUser">
+						<a class="text-light" href="{{ path('app_register') }}">Create new</a>
+					</button>
+					<th scope='col'>Id</th>
+					<th scope='col'>Name</th>
+					<th scope='col'>Email</th>
+					<th scope='col'>Roles</th>
+					<th scope='col'>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<label for="show">
+						<tr>
+							<td>{{ user.id }}</td>
+							<td>{{user.name}}</td>
+							<td>{{ user.email }}</td>
+							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+							<td>
+								<a id='show' class="text-primary" href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+								|
+								<a class="text-primary" href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+							</td>
+						</tr>
+					</label>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+
+		{% for user in users %}
+			{% if user.email == app.user.userIdentifier %}
+				<table class="tableIndex table table-hover table-dark" style="width: 80%; margin-top: 15%">
+					<thead>
+						<tr>
+							<th scope='col'>Name</th>
+							<th scope='col'>Email</th>
+							<th scope='col'>Roles</th>
+							<th scope='col'>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<label for="show">
+							<tr>
+								<td>{{user.name}}</td>
+								<td>{{ user.email }}</td>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+								<td>
+									<a id='show' class="text-primary" href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+									|
+									<a class="text-primary" href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+								</td>
+							</tr>
+						</label>
+					</tbody>
+				</table>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endblock %}

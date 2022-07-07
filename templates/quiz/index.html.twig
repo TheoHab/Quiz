@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+    <table class="tableIndex table table-hover table-dark" style="width: 80%;">
+        <thead>
+            <tr>
+                <th scope='col'>Question</th>
+                <th scope='col'>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.question }}</td>
+                <td>
+                    <a href="{{ path('app_question_show', {'id': question.id}) }}">show</a>
+                    <a href="{{ path('app_question_edit', {'id': question.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_question_new') }}">Create new</a>
+{% else %}
+
+    <table class="tableIndex table table-hover table-dark" style="width: 80%;">
+        <thead>
+            <tr>
+                <th scope='col'>Question</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.question }}</td>
+                {% for reponse in reponses %}
+                <td>{{ reponse.reponse }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+
+    <table class="tableShow table table-hover table-dark" style="width: 80%;">
+        <button class="show btn btn-primary"><a class="btn-show" href="{{ path('app_user_index') }}">Back to list</a></button>
+        <button class="show btn btn-success"><a class="btn-show" href="{{ path('app_user_edit', {'id': user.id}) }}">Edit</a></button>
+        {{ include('user/_delete_form.html.twig') }}
+
+             <tbody>
+            <tr>
+                <th scope="col">Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}New Users
+{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+	<div class="card d-block m-auto bg-dark text-light" style="width: 25rem;">
+		<h5 class="card-header">Créer un compte</h5>
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<p class="card-text">
+				{{ include('user/_form.html.twig') }}
+			</p>
+			<button type="button" class="btn btn-primary">
+				<a style="color: white" href="{{ path('app_user_index') }}">back to list</a>
+			</button>
+
+		</div>
+	</div>
+	{% else %}
+	<div class="card d-block m-auto bg-dark text-light" style="width: 25rem;">
+		<h5 class="card-header">Enregistrez vous</h5>
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<p class="card-text">
+				{{ include('user/_form.html.twig') }}
+			</p>
+
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}

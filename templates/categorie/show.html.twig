@@ -1,0 +1,49 @@
+{# {% extends 'base.html.twig' %} #}
+
+{% block title %}Question index
+{% endblock %}
+
+{% block body %}
+	{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{ path('app_question_new') }}" style="margin-top: 10%">Create new</a>
+		{% for question in isQuestion %}
+			{% set id = ( question.id | default(0) ) + 1 %}
+			<div class="card text-white bg-dark mb-3" style="width: 50%; display: block; margin: auto;">
+				<div class="card-header" style="font-size: 26px; font-weight: 900;">Question :</div>
+				<div class="card-body" style="margin-left: 10%">
+					<h5 class="card-title" id="question" style="font-size: 25px; font-weight: 500">{{ question.question }}</h5>
+					<label for="question" style="margin-bottom: 5%;"><a href="{{ path('app_question_edit', {'id': question.id}) }}">edit</a></label>
+					{% for reponse in reponses %}
+						{% if question.id == reponse.idQuestion %}
+							<p class='card-text'><input type='radio' id='answer{{reponse.id}}' name='answer' value='' {{ reponse.reponse }} ''>
+								<label for='answer{{reponse.id}}'>{{ reponse.reponse }}</label>
+							</p>
+						{% endif %}
+					{% endfor %}
+					<a href="{{ path('app_question_show', {'id': id}) }}" class="btn btn-outline-success" style="display: block; margin-left: 37%" role="button">Valider</a>
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+	{{ idCategorieUn }}
+	{{ idCategorieDeux }}
+
+		{% for question in isQuestion %}
+			{% set id = ( question.id | default(0) ) + 1 %}
+			<div class="card text-white bg-dark mb-3" style="width: 50%; display: block; margin: auto;">
+				<div class="card-header" style="font-size: 26px; font-weight: 900;">Question :</div>
+				<div class="card-body" style="margin-left: 10%">
+					<h5 class="card-title" style="font-size: 25px; margin-bottom: 5%; font-weight: 500">{{ question.question }}</h5>
+					{% for reponse in reponses %}
+						{% if question.id == reponse.idQuestion %}
+							<p class='card-text'><input type='radio' id='answer{{reponse.id}}' name='answer' value='' {{ reponse.reponse }} ''>
+								<label for='answer{{reponse.id}}'>{{ reponse.reponse }}</label>
+							</p>
+						{% endif %}
+					{% endfor %}
+					<a href="{{ path('app_question_show', {'id': id}) }}" class="btn btn-outline-success" style="display: block; margin-left: 37%" role="button">Valider</a>
+				</div>
+			</div>
+		{% endfor %}
+	{% endif %}
+{% endblock %}

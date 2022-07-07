@@ -1,0 +1,3 @@
+# index:
+#    path: /quiz/?id=3
+#    controller: App\Controller\QuestionController::index

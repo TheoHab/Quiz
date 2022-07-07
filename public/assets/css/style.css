@@ -1,0 +1,389 @@
+body {
+    background-image: url("/assets/images/bg-quiz.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    font-family: 'Questrial', sans-serif;
+    font-size: 18px;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+footer {
+    color: antiquewhite;
+    text-align: center;
+    background-color: rgb(77, 77, 78);
+    padding: 1.5%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+i {
+    width: 80px;
+}
+.table{
+    margin-bottom: 10%;
+}
+table.tableIndex {
+    margin-left: 10%;
+    box-shadow: 6px 10px 4px rgba(62, 62, 62, 0.657);
+
+}
+
+table.tableShow {
+    margin-left: 10%;
+    box-shadow: 6px 10px 4px rgba(62, 62, 62, 0.657);
+}
+
+.card {
+    top: 0;
+    box-shadow: 6px 10px 4px rgba(62, 62, 62, 0.657);
+    padding: 2%;
+}
+
+.card .btn {
+    margin-top: 5%;
+}
+
+.card .btn-success {
+    margin-top: 10%;
+    float: right;
+}
+
+.card.show.btn-success {
+    float: inherit;
+}
+
+
+.card input {
+    margin-top: 1%;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 22px;
+}
+.navVignette a {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 22px;
+}
+
+input:focus {
+    outline: none;
+    outline-style: solid;
+    outline-color: orange;
+    outline-width: 1px;
+}
+
+input:hover {
+    box-shadow: 1px 1px 1px rgb(24, 40, 71), -1px 1px 1px rgb(24, 40, 71);
+}
+
+
+
+#deco {
+    padding: 0;
+    margin: 0;
+    font-size: 60px;
+    width: 80% !important;
+    background-color: rgba(0, 229, 255, 0) !important;
+    border: none !important;
+}
+
+.fa-bars {
+    margin-right: 10px;
+    max-width: 80px;
+}
+
+
+.navbar {
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: center;
+    color: #E5E5E5;
+    background: linear-gradient(to right, rgb(109, 105, 105), rgb(45, 45, 45));
+    position: fixed;
+    width: 82%;
+    top: 0;
+    left: -74%;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 6px 10px 4px rgba(62, 62, 62, 0.657), -6px 10px 4px rgba(62, 62, 62, 0.657);
+
+}
+.navVignette{
+    z-index: 1;
+    color: #E5E5E5;
+    background: linear-gradient(to left, rgb(109, 105, 105), rgb(45, 45, 45));
+    box-shadow: 13px 10px 4px rgba(62, 62, 62, 0.657), 13px 8px 4px rgba(62, 62, 62, 0.657);
+    position: fixed;
+    width: 80%;
+    top: 0;
+    right: -58%;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    padding: 1.9%;
+}
+.round{
+    z-index: 2;
+    height: 95px;
+    width: 95px;
+    background-color: rgb(255, 168, 0);
+    box-shadow: inset -7px 0px rgba(62, 62, 62, 0.657);
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: 18%;
+    margin-top: 2px;
+    border-radius: 80px;
+
+}
+.navLogo {
+    width: 40px;
+}
+
+#navHome {
+    flex: 1;
+
+}
+
+#navProfil {
+    flex: 1;
+}
+
+#navAdd {
+    flex: 1;
+}
+
+.decoInscri {
+   margin-left: 5%;
+}
+
+#logoP {
+    width: 70px;
+    margin-left: 20%;
+    margin-top: 7.5%;
+}
+
+#toggle {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+label[for="toggle"] {
+    font-size: 30px;
+}
+
+
+#logoP:hover {
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    -webkit-animation: spin 1000ms linear infinite;
+    -moz-animation: spin 1000ms linear infinite;
+    -ms-animation: spin 1000ms linear infinite;
+    animation: spin 1000ms linear infinite;
+
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+input#toggle:checked+.navbar {
+    animation-name: translateX;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+/* input#toggle:checked+.card {
+    animation-name: translateY;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+} */
+
+input#toggle:checked+.navbar>.Ftoggle>i>#logoP {
+
+    animation-name: spin;
+    -webkit-animation: spin 1000ms linear infinite;
+    -moz-animation: spin 1000ms linear infinite;
+    -ms-animation: spin 1000ms linear infinite;
+    animation: spin 1000ms linear infinite;
+}
+
+#content {
+    width: 50%;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 20%;
+    padding: 5%;
+    background-color: rgba(41, 178, 190, 0.23);
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 3px 2px rgb(24, 40, 71), -2px 3px 2px rgb(24, 40, 71);
+}
+
+#addUser {
+    margin-top: 12%;
+    margin-left: 10%;
+    box-shadow: 6px 10px 4px rgba(62, 62, 62, 0.657);
+
+
+}
+
+.btn-show {
+    color: whitesmoke;
+    text-decoration: none;
+
+}
+
+.show {
+    margin-top: 10%;
+    margin-left: .5%;
+    box-shadow: 6px 10px 4px rgba(62, 62, 62, 0.657);
+
+}
+
+.show:nth-child(1) {
+    margin-left: 10%;
+}
+
+.required {
+    color: antiquewhite;
+    margin-top: 2%;
+}
+
+/*****************************************KEYFRAMES******************************/
+
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes translateX {
+
+    10% {
+        left: 90;
+    }
+
+    20% {
+        left: 80;
+    }
+
+    30% {
+        left: 70;
+    }
+
+    40% {
+        left: 60;
+    }
+
+    50% {
+        left: 50;
+    }
+
+    60% {
+        left: 40;
+    }
+
+    70% {
+        left: 30;
+    }
+
+    80% {
+        left: 20;
+    }
+
+    90% {
+        left: 10;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes translateY {
+
+    10% {
+        top: 90;
+    }
+
+    20% {
+        top: 80;
+    }
+
+    30% {
+        top: 70;
+    }
+
+    40% {
+        top: 60;
+    }
+
+    50% {
+        top: 50;
+    }
+
+    60% {
+        top: 40;
+    }
+
+    70% {
+        top: 30;
+    }
+
+    80% {
+        top: 20;
+    }
+
+    90% {
+        top: 10;
+    }
+
+    100% {
+        top: 0;
+    }
+}

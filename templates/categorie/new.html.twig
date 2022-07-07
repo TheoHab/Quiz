@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Quiz
+{% endblock %}
+
+{% block body %}
+	<div class="card d-block m-auto bg-dark text-light" style="width: 25rem;">
+		<h5 class="card-header">Nouvelle Catégorie</h5>
+		<div class="card-body">
+			<p class="card-text">{{ include('categorie/_form.html.twig') }}</p>
+		</div>
+	</div>
+{% endblock %}
